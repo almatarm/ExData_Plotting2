@@ -13,11 +13,11 @@ N.sub <- NEI[NEI$SCC %in% S$SCC, c(4, 6)]
 N.agg <- aggregate(N.sub$Emissions, by= list(N.sub$year), "sum")
 names(N.agg) <- c("year", "Emissions");
 
+png(filename="plot4.png", height=480, width=480)
 model <- lm(Emissions/1e3 ~ year, N.agg);
-
 plot(N.agg$year, N.agg$Emissions/1e3, type="b", col="blue",
      ylab = expression("Total PM"[2.5]*" Emission in US (Kelo Tons)"),
      xlab = "Year",
      main = expression("Total Emissions from PM"[2.5]*" in US from 1999 to 2008"));
-
 abline(model, lwd =2, col='red')
+dev.off();
