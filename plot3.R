@@ -13,7 +13,7 @@ names(N.agg) <- c("year", "type", "Emissions");
 
 library(ggplot2)
 
-png(filename="plot3.png", height=480, width=480)
+png(filename="plot3.png", height=600, width=800)
 qplot(year, Emissions, data = N.agg, facets = .~type, geom = c("point", "smooth"), 
       method = "lm", 
       main=expression("Total Emissions in Baltimore City from 1999 to 2008 for All Sources"))
